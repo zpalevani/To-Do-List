@@ -6,6 +6,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 15px; /* Added padding for small screens */
+    box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
 }
 
 .container {
@@ -25,6 +27,7 @@ body {
 .header h1 {
     color: #333;
     margin: 0;
+    font-size: 2em; /* Responsive font size */
 }
 
 .header p {
@@ -97,6 +100,8 @@ body {
     align-items: center;
     padding: 15px;
     border-bottom: 1px solid #eee;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 10px; /* Add gap between items */
 }
 
 .task-item.completed span {
@@ -116,6 +121,9 @@ body {
     font-size: 12px;
     color: #888;
     margin-left: 10px;
+    width: 100%; /* Take full width on a new line if needed */
+    text-align: left; /* Align to the left */
+    padding-left: 25px; /* Align with task text */
 }
 
 .task-item .edit-btn, .task-item .delete-btn {
@@ -170,4 +178,37 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .input-section {
+        flex-direction: column; /* Stack input fields vertically */
+    }
+
+    #dateInput {
+        width: 100%; /* Make date input full width */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .task-item {
+        flex-direction: column; /* Stack task items vertically */
+        align-items: flex-start;
+    }
+
+    .task-item .due-date {
+        padding-left: 0; /* Remove padding for due date */
+    }
+
+    .task-item .edit-btn, .task-item .delete-btn {
+        margin-top: 10px; /* Add some space above buttons */
+    }
+
+    .header h1 {
+        font-size: 1.5em; /* Smaller font size for smaller screens */
+    }
 }
